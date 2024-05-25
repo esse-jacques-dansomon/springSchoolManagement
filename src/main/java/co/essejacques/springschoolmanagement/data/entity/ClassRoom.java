@@ -24,8 +24,6 @@ public class ClassRoom {
     @OneToMany(mappedBy = "classRoom")
     private Set<Course> courses;
 
-
-
-
-
+    @OneToMany(mappedBy = "classRoom")
+    private Set<Student> students;
 }

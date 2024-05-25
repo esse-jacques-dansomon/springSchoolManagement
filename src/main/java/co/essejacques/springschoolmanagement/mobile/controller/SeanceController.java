@@ -12,7 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/seances")
 @RestController
-@Tag(name = "Seance", description = "Seance API")
+@Tag(name = "Seances", description = "Seance API")
 public class SeanceController {
 
     private final ISeanceService seanceService;

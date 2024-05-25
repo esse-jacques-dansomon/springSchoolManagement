@@ -24,8 +24,8 @@ public class Course {
     @Column(name = "professor", nullable = false)
     private String professor;
 
-    @Column(name = "icon")
-    private String icon = "https://img.freepik.com/free-vector/designer-girl-concept-illustration_114360-4455.jpg?w=2000";
+    @Column(name = "icon", nullable = true)
+    private String icon ;
 
     @OneToMany(mappedBy = "course")
     private Set<Seance> seances;

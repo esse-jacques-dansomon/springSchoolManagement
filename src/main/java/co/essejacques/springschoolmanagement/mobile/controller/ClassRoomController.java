@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RequiredArgsConstructor
-@RequestMapping("/classroom")
+@RequestMapping("/classrooms")
 @RestController
 @Tag(name = "classroom", description = "ClassRoom API")
 public class ClassRoomController {
