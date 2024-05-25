@@ -1,9 +1,12 @@
 package co.essejacques.springschoolmanagement.services.impl;
 
 import co.essejacques.springschoolmanagement.data.entity.Student;
+import co.essejacques.springschoolmanagement.data.projections.StudentProjection;
 import co.essejacques.springschoolmanagement.data.repository.StudentRepository;
 import co.essejacques.springschoolmanagement.services.interfaces.IStudentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +22,15 @@ public class StudentService implements IStudentService {
     @Override
     public List<Student> getAll() {
         return studentRepository.findAll();
+    }
+
+    /**
+     * @param pageRequest
+     * @return
+     */
+    @Override
+    public Page<StudentProjection> getAll(PageRequest pageRequest) {
+        return studentRepository.getPaginateStudents(pageRequest);
     }
 
     /**

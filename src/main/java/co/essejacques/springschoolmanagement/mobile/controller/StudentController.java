@@ -1,9 +1,12 @@
 package co.essejacques.springschoolmanagement.mobile.controller;
 
 import co.essejacques.springschoolmanagement.data.entity.Student;
+import co.essejacques.springschoolmanagement.data.projections.StudentProjection;
 import co.essejacques.springschoolmanagement.services.interfaces.IStudentService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,8 +25,11 @@ public class StudentController {
     }
 
     @GetMapping()
-    public List<Student> getStudents()  {
-        return this.studentService.getAll();
+    public Page<StudentProjection> getStudents(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    )  {
+        return this.studentService.getAll(PageRequest.of(page, size));
     }
 
 
