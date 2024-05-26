@@ -57,4 +57,14 @@ public class CourseService  implements ICourseService {
     public List<CourseProjection> getCoursesByClassRoom(Long id) {
         return courseRepository.findByClassRoomId(id);
     }
+
+    /**
+     * @param id
+     * @param status
+     * @return
+     */
+    @Override
+    public List<CourseProjection> getCoursesByClassRoomAndStatus(Long id, CourseStatus status) {
+        return courseRepository.findAllByClassRoomIdAndStatus(id, status);
+    }
 }

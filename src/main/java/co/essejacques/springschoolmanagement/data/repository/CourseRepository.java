@@ -11,4 +11,6 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
     List<Course> findAllByStatus(CourseStatus courseStatus);
 
     List<CourseProjection> findByClassRoomId(Long id);
+
+    List<CourseProjection> findAllByClassRoomIdAndStatus(Long id, CourseStatus status);
 }

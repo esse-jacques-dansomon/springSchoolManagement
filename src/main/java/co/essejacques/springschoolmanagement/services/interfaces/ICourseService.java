@@ -14,4 +14,5 @@ public interface ICourseService {
     void deleteCourse(Long id);
     Course updateCourse(Long id, Course course);
     List<CourseProjection> getCoursesByClassRoom(Long id);
+    List<CourseProjection> getCoursesByClassRoomAndStatus(Long id, CourseStatus status);
 }

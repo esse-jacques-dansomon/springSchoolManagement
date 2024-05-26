@@ -40,6 +40,11 @@ public class CourseController {
         return this.courseService.getCoursesByClassRoom(id);
     }
 
+    @GetMapping("/classroom/{id}/status/{status}")
+    public List<CourseProjection> getCoursesByClassRoomId(@PathVariable Long id, @PathVariable CourseStatus status)   {
+        return this.courseService.getCoursesByClassRoomAndStatus(id, status);
+    }
+
     @GetMapping("/{id}")
     public Course getCourseById(@PathVariable Long id)  {
         return this.courseService.getCourseById(id);
