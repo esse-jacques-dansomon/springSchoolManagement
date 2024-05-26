@@ -2,6 +2,7 @@ package co.essejacques.springschoolmanagement.mobile.controller;
 
 import co.essejacques.springschoolmanagement.data.entity.Seance;
 import co.essejacques.springschoolmanagement.data.enums.CourseStatus;
+import co.essejacques.springschoolmanagement.data.projections.SeanceDetailsProjection;
 import co.essejacques.springschoolmanagement.services.interfaces.ISeanceService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +31,16 @@ public class SeanceController {
     @GetMapping("/status/{status}")
     public List<Seance> getSeancesByStatus(@PathVariable CourseStatus status)  {
         return this.seanceService.getSeancesByStatus(status);
+    }
+
+    @GetMapping("/classroom/{id}")
+    public List<SeanceDetailsProjection> getSessionsByClassroom(@PathVariable Long id)  {
+        return this.seanceService.getSessionsByClassroom(id);
+    }
+
+    @GetMapping("/classroom/{id}/today")
+    public List<SeanceDetailsProjection> getSessionsByClassroomAndToday(@PathVariable Long id)  {
+        return this.seanceService.getSessionsByClassroomAndToday(id);
     }
 
     @GetMapping("/{id}")

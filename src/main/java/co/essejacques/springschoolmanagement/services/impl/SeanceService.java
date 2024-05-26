@@ -2,11 +2,14 @@ package co.essejacques.springschoolmanagement.services.impl;
 
 import co.essejacques.springschoolmanagement.data.entity.Seance;
 import co.essejacques.springschoolmanagement.data.enums.CourseStatus;
+import co.essejacques.springschoolmanagement.data.projections.SeanceDetailsProjection;
 import co.essejacques.springschoolmanagement.data.repository.SeanceRepository;
 import co.essejacques.springschoolmanagement.services.interfaces.ISeanceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -42,5 +45,23 @@ public class SeanceService  implements ISeanceService {
     @Override
     public Seance updateSeance(Long id, Seance seance) {
         return seanceRepository.save(seance);
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @Override
+    public List<SeanceDetailsProjection> getSessionsByClassroomAndToday(Long id) {
+        return seanceRepository.findAllByCourse_ClassRoom_IdAndDateIs(id, LocalDate.now());
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @Override
+    public List<SeanceDetailsProjection> getSessionsByClassroom(Long id) {
+        return seanceRepository.findAllByCourse_ClassRoom_Id(id);
     }
 }

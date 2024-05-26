@@ -47,7 +47,9 @@ public class SpringSecurityConfig {
                     authorize.requestMatchers("/open-api/**").permitAll();
                     authorize.requestMatchers("/swagger-ui/**").permitAll();
                     authorize.requestMatchers("/auth/**").permitAll();
-                    authorize.requestMatchers("/classroom/**").permitAll();
+                    authorize.requestMatchers("/classrooms/**").permitAll();
+                    authorize.requestMatchers("/courses/**").permitAll();
+                    authorize.requestMatchers("/seances/**").permitAll();
                     authorize.requestMatchers("/students/**").permitAll();
                     authorize.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll();
                     authorize.anyRequest().authenticated();

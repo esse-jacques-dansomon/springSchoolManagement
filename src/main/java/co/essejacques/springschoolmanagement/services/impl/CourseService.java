@@ -2,6 +2,7 @@ package co.essejacques.springschoolmanagement.services.impl;
 
 import co.essejacques.springschoolmanagement.data.entity.Course;
 import co.essejacques.springschoolmanagement.data.enums.CourseStatus;
+import co.essejacques.springschoolmanagement.data.projections.CourseProjection;
 import co.essejacques.springschoolmanagement.data.repository.CourseRepository;
 import co.essejacques.springschoolmanagement.services.interfaces.ICourseService;
 import lombok.RequiredArgsConstructor;
@@ -46,5 +47,14 @@ public class CourseService  implements ICourseService {
     @Override
     public Course updateCourse(Long id, Course course) {
         return this.courseRepository.save(course);
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @Override
+    public List<CourseProjection> getCoursesByClassRoom(Long id) {
+        return courseRepository.findByClassRoomId(id);
     }
 }

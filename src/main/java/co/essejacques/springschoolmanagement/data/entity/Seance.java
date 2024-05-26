@@ -4,6 +4,7 @@ import co.essejacques.springschoolmanagement.data.enums.CourseStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
@@ -19,7 +20,7 @@ public class Seance {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDateTime date;
+    private LocalDate date;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
 

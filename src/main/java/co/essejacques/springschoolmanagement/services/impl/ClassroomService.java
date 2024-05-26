@@ -1,6 +1,7 @@
 package co.essejacques.springschoolmanagement.services.impl;
 
 import co.essejacques.springschoolmanagement.data.entity.ClassRoom;
+import co.essejacques.springschoolmanagement.data.projections.ClassRoomDetailsProjection;
 import co.essejacques.springschoolmanagement.data.repository.ClassRoomRepository;
 import co.essejacques.springschoolmanagement.mobile.dtos.IClassroom;
 import co.essejacques.springschoolmanagement.services.interfaces.IClassroomService;
@@ -30,6 +31,16 @@ public class ClassroomService implements IClassroomService {
         return classRoomRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Course not found"));
 
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @Override
+    public ClassRoomDetailsProjection getCourseDetailsById(Long id) {
+        return classRoomRepository.findProjectedById(id)
+                .orElseThrow(() -> new RuntimeException("Course not found"));
     }
 
     @Override
