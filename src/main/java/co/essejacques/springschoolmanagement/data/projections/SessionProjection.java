@@ -5,11 +5,10 @@ import co.essejacques.springschoolmanagement.data.enums.CourseStatus;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public interface SeanceDetailsProjection {
+public interface SessionProjection {
     Long getId();
     LocalDate getDate();
     LocalDateTime getStartTime();
     LocalDateTime getEndTime();
     CourseStatus getstatus();
-    CourseProjection getCourse();
 }

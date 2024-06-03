@@ -8,6 +8,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
 
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 public class AuthService implements IAuthService {
     private final JwtService jwtService;
     private AuthenticationManager authenticationManager;
+    private final UserDetailsService userDetailsService;
 
     @Override
     public String login(LoginDto loginDto) {
@@ -31,4 +33,5 @@ public class AuthService implements IAuthService {
 
         return token;
     }
+
 }

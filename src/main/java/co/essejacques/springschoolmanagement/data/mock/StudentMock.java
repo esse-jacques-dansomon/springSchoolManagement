@@ -3,12 +3,9 @@
 //import co.essejacques.springschoolmanagement.data.entity.ClassRoom;
 //import co.essejacques.springschoolmanagement.data.entity.Role;
 //import co.essejacques.springschoolmanagement.data.entity.Student;
-//import co.essejacques.springschoolmanagement.data.entity.User;
 //import co.essejacques.springschoolmanagement.data.repository.ClassRoomRepository;
 //import co.essejacques.springschoolmanagement.data.repository.RoleRepository;
 //import co.essejacques.springschoolmanagement.data.repository.StudentRepository;
-//import co.essejacques.springschoolmanagement.data.repository.UserRepository;
-//import lombok.Builder;
 //import lombok.RequiredArgsConstructor;
 //import org.springframework.boot.CommandLineRunner;
 //import org.springframework.core.annotation.Order;

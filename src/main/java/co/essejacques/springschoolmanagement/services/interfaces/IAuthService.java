@@ -4,5 +4,4 @@ import co.essejacques.springschoolmanagement.mobile.dtos.LoginDto;
 
 public interface IAuthService {
     String login(LoginDto loginDto);
-
 }

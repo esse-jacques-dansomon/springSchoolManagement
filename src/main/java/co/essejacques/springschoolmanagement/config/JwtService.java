@@ -8,9 +8,11 @@ import java.security.Key;
 import java.util.Date;
 
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.crypto.SecretKey;
 
@@ -67,6 +69,16 @@ public class JwtService {
                 .parse(token);
         return true;
 
+    }
+
+    public String getTokenFormRequest(HttpServletRequest request){
+        String bearerToken = request.getHeader("Authorization");
+
+        if(StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")){
+            return bearerToken.substring(7, bearerToken.length());
+        }
+
+        return null;
     }
 
 }

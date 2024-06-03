@@ -13,5 +13,5 @@ public interface CourseDetailsProjection {
 
     String getStatus();
 
-    Set<SeanceProjection> getSeances();
+    Set<SessionProjection> getSeances();
 }

@@ -9,5 +9,4 @@ public interface ClassRoomDetailsProjection {
     String getDivision();
     String getLevel();
     Set<CourseProjection> getCourses();
-
 }

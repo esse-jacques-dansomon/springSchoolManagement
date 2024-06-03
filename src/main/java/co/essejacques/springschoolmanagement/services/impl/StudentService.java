@@ -39,7 +39,7 @@ public class StudentService implements IStudentService {
      */
     @Override
     public Student getById(Long id) {
-        return studentRepository.findById(id).orElseThrow(() -> new RuntimeException("Seance not found"));
+        return studentRepository.findById(id).orElseThrow(() -> new RuntimeException("Session not found"));
     }
 
     /**

@@ -1,13 +1,11 @@
 package co.essejacques.springschoolmanagement.data.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import org.hibernate.proxy.HibernateProxy;
 
-import java.util.Objects;
+import java.util.Set;
+
 
 @Entity
 @Getter
@@ -25,5 +23,12 @@ public class Student extends User {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @ToString.Exclude
     private ClassRoom classRoom;
+
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "student", cascade = CascadeType.ALL)
+    @ToString.Exclude
+    private Set<SessionSign> sessionSigns;
+
+
 
 }

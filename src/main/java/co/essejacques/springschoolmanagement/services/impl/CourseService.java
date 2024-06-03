@@ -55,7 +55,7 @@ public class CourseService  implements ICourseService {
      */
     @Override
     public List<CourseProjection> getCoursesByClassRoom(Long id) {
-        return courseRepository.findByClassRoomId(id);
+        return courseRepository.findDistinctByClassRoomId(id);
     }
 
     /**

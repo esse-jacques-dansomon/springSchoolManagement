@@ -3,8 +3,10 @@ package co.essejacques.springschoolmanagement.data.entity;
 import co.essejacques.springschoolmanagement.data.enums.CourseStatus;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
-import java.util.List;
+import java.util.Date;
 import java.util.Set;
 
 @Data
@@ -28,11 +30,19 @@ public class Course {
     private String icon ;
 
     @OneToMany(mappedBy = "course")
-    private Set<Seance> seances;
+    private Set<Session> sessions;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private ClassRoom classRoom;
 
     @Enumerated(EnumType.STRING)
     private CourseStatus status;
+
+    @CreationTimestamp
+    @Column(updatable = false, name = "created_at")
+    protected Date createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    protected Date updatedAt;
 }
