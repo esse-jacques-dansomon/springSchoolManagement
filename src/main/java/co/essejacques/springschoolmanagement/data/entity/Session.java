@@ -15,7 +15,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "seance")
+@Table(name = "session")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

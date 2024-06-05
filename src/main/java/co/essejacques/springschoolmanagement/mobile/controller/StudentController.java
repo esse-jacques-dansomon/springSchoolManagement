@@ -20,7 +20,7 @@ public class StudentController {
     private final IStudentService studentService;
 
     @PostMapping()
-    public Student saveSeance(Student student)  {
+    public Student saveSession(Student student)  {
         return this.studentService.save(student);
     }
 
@@ -34,12 +34,12 @@ public class StudentController {
 
 
     @GetMapping("/{id}")
-    public Student getSeanceById(@PathVariable Long id)  {
+    public Student getSessionById(@PathVariable Long id)  {
         return this.studentService.getById(id);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteSeance(@PathVariable Long id)  {
+    public void deleteSession(@PathVariable Long id)  {
         this.studentService.delete(id);
     }
 

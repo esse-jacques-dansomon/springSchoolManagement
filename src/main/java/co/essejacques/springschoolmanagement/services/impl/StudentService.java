@@ -61,11 +61,11 @@ public class StudentService implements IStudentService {
 
     /**
      * @param id
-     * @param seance
+     * @param student
      * @return
      */
     @Override
-    public Student update(Long id, Student seance) {
-        return studentRepository.save(seance);
+    public Student update(Long id, Student student) {
+        return studentRepository.save(student);
     }
 }

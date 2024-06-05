@@ -8,12 +8,12 @@ import java.util.List;
 
 public interface ISessionService {
 
-    List<SessionDetailsProjection> getSeances();
-    List<SessionDetailsProjection> getSeancesByStatus(CourseStatus courseStatus);
-    Session getSeanceById(Long id);
-    Session saveSeance(Session session);
-    void deleteSeance(Long id);
-    Session updateSeance(Long id, Session session);
+    List<SessionDetailsProjection> getSessions();
+    List<SessionDetailsProjection> getSessionsByStatus(CourseStatus courseStatus);
+    Session getSessionById(Long id);
+    Session saveSession(Session session);
+    void deleteSession(Long id);
+    Session updateSession(Long id, Session session);
     List<SessionDetailsProjection> getSessionsByClassroomAndToday(Long id);
     List<SessionDetailsProjection> getSessionsByClassroom(Long id);
 }

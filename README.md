@@ -35,10 +35,10 @@ mvn spring-boot:run
 - View All Courses
 - View Courses by Status
 
-#### Seance
-- Add Seance
-- Delete Seance
-- Update Seance
-- View Seance
-- View All Seances
-- View Seances by Status
+#### Session
+- Add Session
+- Delete Session
+- Update Session
+- View Session
+- View All Sessions
+- View Sessions by Status

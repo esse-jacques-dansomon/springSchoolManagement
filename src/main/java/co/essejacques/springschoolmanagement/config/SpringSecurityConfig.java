@@ -49,7 +49,7 @@ public class SpringSecurityConfig {
                     authorize.requestMatchers("/auth/**").permitAll();
                     authorize.requestMatchers("/classrooms/**").permitAll();
                     authorize.requestMatchers("/courses/**").permitAll();
-                    authorize.requestMatchers("/seances/**").permitAll();
+                    authorize.requestMatchers("/sessions/**").permitAll();
                     authorize.requestMatchers("/students/**").permitAll();
                     authorize.requestMatchers("/session-signs/**").permitAll();
                     authorize.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll();

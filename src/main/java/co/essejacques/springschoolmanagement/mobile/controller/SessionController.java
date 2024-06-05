@@ -17,41 +17,41 @@ import java.util.List;
 @Tag(name = "Sessions", description = "Session API")
 public class SessionController {
 
-    private final ISessionService seanceService;
+    private final ISessionService sessionService;
 
     @PostMapping()
-    public Session saveSeance(Session session)  {
-        return this.seanceService.saveSeance(session);
+    public Session saveSession(Session session)  {
+        return this.sessionService.saveSession(session);
     }
 
     @GetMapping()
-    public List<SessionDetailsProjection> getSeances()  {
-        return this.seanceService.getSeances();
+    public List<SessionDetailsProjection> getSessions()  {
+        return this.sessionService.getSessions();
     }
 
     @GetMapping("/status/{status}")
-    public ResponseEntity<List<SessionDetailsProjection>> getSeancesByStatus(@PathVariable CourseStatus status)  {
-        return ResponseEntity.ok(this.seanceService.getSeancesByStatus(status));
+    public ResponseEntity<List<SessionDetailsProjection>> getSessionsByStatus(@PathVariable CourseStatus status)  {
+        return ResponseEntity.ok(this.sessionService.getSessionsByStatus(status));
     }
 
     @GetMapping("/classroom/{id}")
     public List<SessionDetailsProjection> getSessionsByClassroom(@PathVariable Long id)  {
-        return this.seanceService.getSessionsByClassroom(id);
+        return this.sessionService.getSessionsByClassroom(id);
     }
 
     @GetMapping("/classroom/{id}/today")
     public List<SessionDetailsProjection> getSessionsByClassroomAndToday(@PathVariable Long id)  {
-        return this.seanceService.getSessionsByClassroomAndToday(id);
+        return this.sessionService.getSessionsByClassroomAndToday(id);
     }
 
     @GetMapping("/{id}")
-    public Session getSeanceById(@PathVariable Long id)  {
-        return this.seanceService.getSeanceById(id);
+    public Session getSessionById(@PathVariable Long id)  {
+        return this.sessionService.getSessionById(id);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteSeance(@PathVariable Long id)  {
-        this.seanceService.deleteSeance(id);
+    public void deleteSession(@PathVariable Long id)  {
+        this.sessionService.deleteSession(id);
     }
 
 }
