@@ -22,7 +22,8 @@ spec:
             - containerPort: 8080 # The port that the container is running on in the cluster
               protocol: TCP
           env:
-#            - name: SPRING_PROFILES_ACTIVE
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod
 #              valueFrom:
 #                configMapKeyRef:
 #                  name: postgres-configmap
