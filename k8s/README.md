@@ -20,5 +20,7 @@ k describe pod schoolmanagement-deploy-69884f7888-qk55q  -n webapps
 k logs schoolmanagement-deploy-69884f7888-qk55q  -n webapps
 k get deployments, pods -n webapps
 
+k exec -it postgres-6d7cb4f9f4-j7lgp -- psql -h localhost -U cG9zdGdyZXM= --password -p 5432 school_management
+
 
 ```
