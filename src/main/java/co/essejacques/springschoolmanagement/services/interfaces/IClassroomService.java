@@ -2,7 +2,7 @@ package co.essejacques.springschoolmanagement.services.interfaces;
 
 import co.essejacques.springschoolmanagement.data.entity.ClassRoom;
 import co.essejacques.springschoolmanagement.data.projections.ClassRoomDetailsProjection;
-import co.essejacques.springschoolmanagement.mobile.dtos.IClassroom;
+import co.essejacques.springschoolmanagement.data.projections.ClassRoomProjection;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -15,5 +15,5 @@ public interface IClassroomService {
     ClassRoom saveClassRoom(ClassRoom ClassRoom);
     void deleteCourse(Long id);
     ClassRoom updateClassRoom(Long id, ClassRoom ClassRoom);
-    Page<IClassroom> findAll(Pageable pageable);
+    Page<ClassRoomProjection> findAll(Pageable pageable);
 }

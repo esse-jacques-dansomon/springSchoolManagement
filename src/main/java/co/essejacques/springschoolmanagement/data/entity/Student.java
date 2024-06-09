@@ -28,6 +28,6 @@ public class Student extends User {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "student", cascade = CascadeType.ALL)
     @ToString.Exclude
-    private Set<SessionSign> sessionSigns;
+    private Set<Attendance> attendances;
 
 }

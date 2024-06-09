@@ -23,9 +23,9 @@ public class Role {
 
     @CreationTimestamp
     @Column(updatable = false, name = "created_at")
-    protected Date createdAt;
+    private Date createdAt;
 
     @UpdateTimestamp
     @Column(name = "updated_at")
-    protected Date updatedAt;
+    private Date updatedAt;
 }

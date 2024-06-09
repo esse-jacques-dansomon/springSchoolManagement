@@ -11,7 +11,6 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "class_room")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

@@ -7,6 +7,9 @@ import co.essejacques.springschoolmanagement.data.projections.CourseProjection;
 import co.essejacques.springschoolmanagement.services.interfaces.ICourseService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,9 +28,13 @@ public class CourseController {
         return this.courseService.saveCourse(course);
     }
 
-    @GetMapping()
-    public List<Course> getCourses()  {
-        return this.courseService.getAllCourses();
+    @GetMapping
+    public ResponseEntity<Page<CourseProjection>> getAttendances(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ) {
+        Page<CourseProjection> courses = courseService.getAll(PageRequest.of(page, size));
+        return ResponseEntity.ok(courses);
     }
 
     @GetMapping("/status/{status}")

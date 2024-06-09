@@ -6,6 +6,8 @@ import co.essejacques.springschoolmanagement.data.projections.SessionDetailsProj
 import co.essejacques.springschoolmanagement.data.repository.SessionRepository;
 import co.essejacques.springschoolmanagement.services.interfaces.ISessionService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -18,8 +20,8 @@ public class SessionService implements ISessionService {
     private final SessionRepository sessionRepository;
 
     @Override
-    public List<SessionDetailsProjection> getSessions() {
-        return sessionRepository.findAllSessions();
+    public Page<SessionDetailsProjection> getSessions(PageRequest pageRequest) {
+        return sessionRepository.findPagedProjectedBy(pageRequest);
     }
 
     @Override

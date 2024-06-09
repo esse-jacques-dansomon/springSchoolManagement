@@ -15,7 +15,6 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "session")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -37,15 +36,15 @@ public class Session {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "session", cascade = CascadeType.ALL)
     @ToString.Exclude
-    private Set<SessionSign> sessionSigns;
+    private Set<Attendance> attendances;
 
     @CreationTimestamp
     @Column(updatable = false, name = "created_at")
-    protected Date createdAt;
+    private Date createdAt;
 
     @UpdateTimestamp
     @Column(name = "updated_at")
-    protected Date updatedAt;
+    private Date updatedAt;
 
 
 }

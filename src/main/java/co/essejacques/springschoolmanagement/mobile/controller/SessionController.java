@@ -6,6 +6,9 @@ import co.essejacques.springschoolmanagement.data.projections.SessionDetailsProj
 import co.essejacques.springschoolmanagement.services.interfaces.ISessionService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.converters.models.Pageable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,8 +28,11 @@ public class SessionController {
     }
 
     @GetMapping()
-    public List<SessionDetailsProjection> getSessions()  {
-        return this.sessionService.getSessions();
+    public Page<SessionDetailsProjection> getSessions(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    )  {
+        return this.sessionService.getSessions(PageRequest.of(page, size));
     }
 
     @GetMapping("/status/{status}")

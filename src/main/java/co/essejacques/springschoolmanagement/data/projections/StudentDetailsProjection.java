@@ -10,5 +10,5 @@ public interface StudentDetailsProjection {
     String getAddress();
     String getRegistrationNumber();
     ClassRoomProjection getClassRoom();
-    Set<SessionProjection> getSessionSigns();
+    Set<SessionProjection> getAttendances();
 }

@@ -1,6 +1,6 @@
 package co.essejacques.springschoolmanagement.data.entity;
 
-import co.essejacques.springschoolmanagement.data.enums.SessionSignStatus;
+import co.essejacques.springschoolmanagement.data.enums.AttendanceStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,8 +13,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "session_sign")
-public class SessionSign {
+public class Attendance {
     @Id
     @Column(name = "id", nullable = false)
     private Long id;
@@ -28,18 +27,15 @@ public class SessionSign {
     private Student student;
 
     @Enumerated(EnumType.STRING)
-    private SessionSignStatus status;
+    private AttendanceStatus status;
 
     private LocalDateTime date;
 
     @CreationTimestamp
     @Column(updatable = false, name = "created_at")
-    protected Date createdAt;
+    private Date createdAt;
 
     @UpdateTimestamp
     @Column(name = "updated_at")
-    protected Date updatedAt;
-
-
-
+    private Date updatedAt;
 }

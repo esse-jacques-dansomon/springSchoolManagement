@@ -7,6 +7,5 @@ import java.util.Set;
 
 public interface RoleRepository extends JpaRepository<Role, Long> {
     Role findByName(String name);
-
     Set<Role> findAllByName(String roleStudent);
 }

@@ -6,6 +6,8 @@ import co.essejacques.springschoolmanagement.data.projections.CourseProjection;
 import co.essejacques.springschoolmanagement.data.repository.CourseRepository;
 import co.essejacques.springschoolmanagement.services.interfaces.ICourseService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -66,5 +68,14 @@ public class CourseService  implements ICourseService {
     @Override
     public List<CourseProjection> getCoursesByClassRoomAndStatus(Long id, CourseStatus status) {
         return courseRepository.findAllByClassRoomIdAndStatus(id, status);
+    }
+
+    /**
+     * @param pageRequest
+     * @return
+     */
+    @Override
+    public Page<CourseProjection> getAll(PageRequest pageRequest) {
+        return courseRepository.findPagedProjectedBy(pageRequest);
     }
 }

@@ -2,6 +2,7 @@ package co.essejacques.springschoolmanagement.services.impl;
 
 import co.essejacques.springschoolmanagement.data.entity.ClassRoom;
 import co.essejacques.springschoolmanagement.data.projections.ClassRoomDetailsProjection;
+import co.essejacques.springschoolmanagement.data.projections.ClassRoomProjection;
 import co.essejacques.springschoolmanagement.data.repository.ClassRoomRepository;
 import co.essejacques.springschoolmanagement.mobile.dtos.IClassroom;
 import co.essejacques.springschoolmanagement.services.interfaces.IClassroomService;
@@ -59,8 +60,8 @@ public class ClassroomService implements IClassroomService {
     }
 
     @Override
-    public Page<IClassroom> findAll(Pageable pageable) {
-        return this.classRoomRepository.findAllProjectedBy(pageable);
+    public Page<ClassRoomProjection> findAll(Pageable pageable) {
+        return this.classRoomRepository.findPagedProjectedBy(pageable);
     }
 
 }

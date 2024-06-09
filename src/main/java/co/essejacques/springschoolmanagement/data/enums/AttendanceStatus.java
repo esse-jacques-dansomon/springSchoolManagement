@@ -1,6 +1,6 @@
 package co.essejacques.springschoolmanagement.data.enums;
 
-public enum SessionSignStatus {
+public enum AttendanceStatus {
     PRESENT,
     ABSENT,
     EXCUSED

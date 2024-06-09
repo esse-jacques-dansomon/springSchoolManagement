@@ -3,6 +3,7 @@ package co.essejacques.springschoolmanagement.mobile.controller;
 
 import co.essejacques.springschoolmanagement.data.entity.ClassRoom;
 import co.essejacques.springschoolmanagement.data.projections.ClassRoomDetailsProjection;
+import co.essejacques.springschoolmanagement.data.projections.ClassRoomProjection;
 import co.essejacques.springschoolmanagement.mobile.dtos.IClassroom;
 import co.essejacques.springschoolmanagement.services.interfaces.IClassroomService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -29,7 +30,7 @@ public class ClassRoomController {
     }
 
     @GetMapping()
-    public Page<IClassroom> getCourses(
+    public Page<ClassRoomProjection> getCourses(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size
     )  {
