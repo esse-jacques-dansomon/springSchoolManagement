@@ -35,7 +35,7 @@ public class AuthController {
         return new ResponseEntity<>(jwtAuthResponse, HttpStatus.OK);
     }
 
-    @GetMapping("user-details")
+    @GetMapping("/user-details")
     public Optional<User> userDetails(HttpServletRequest request, HttpServletResponse response){
       String token = jwtService.getTokenFormRequest(request);
       String username = jwtService.getUsername(token);

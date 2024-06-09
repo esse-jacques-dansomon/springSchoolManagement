@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AuthService implements IAuthService {
     private final JwtService jwtService;
-    private AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
     private final UserDetailsService userDetailsService;
 
     @Override
@@ -29,9 +29,7 @@ public class AuthService implements IAuthService {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        String token = jwtService.generateToken(authentication);
-
-        return token;
+        return jwtService.generateToken(authentication);
     }
 
 }

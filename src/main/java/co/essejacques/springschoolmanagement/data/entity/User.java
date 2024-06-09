@@ -45,5 +45,4 @@ public class User {
     )
     protected Set<Role> roles;
 
-
 }

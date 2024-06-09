@@ -30,7 +30,7 @@ public class StudentService implements IStudentService {
      */
     @Override
     public Page<StudentProjection> getAll(PageRequest pageRequest) {
-        return studentRepository.getPaginateStudents(pageRequest);
+        return studentRepository.findPagedProjectedBy(pageRequest);
     }
 
     /**

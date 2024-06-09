@@ -40,6 +40,7 @@ public class SpringSecurityConfig {
                     authorize.requestMatchers("/open-api/**").permitAll();
                     authorize.requestMatchers("/swagger-ui/**").permitAll();
                     authorize.requestMatchers("/auth/**").permitAll();
+                    authorize.requestMatchers("/users/**").permitAll();
                     authorize.requestMatchers("/classrooms/**").permitAll();
                     authorize.requestMatchers("/courses/**").permitAll();
                     authorize.requestMatchers("/sessions/**").permitAll();

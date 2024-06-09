@@ -24,7 +24,7 @@ public class ClassRoom {
     private String division;
     private String level;
 
-    @OneToMany(mappedBy = "classRoom")
+    @OneToMany(mappedBy = "classRoom", orphanRemoval = true)
     private Set<Course> courses;
 
     @OneToMany(mappedBy = "classRoom")
@@ -32,9 +32,9 @@ public class ClassRoom {
 
     @CreationTimestamp
     @Column(updatable = false, name = "created_at")
-    protected Date createdAt;
+    private Date createdAt;
 
     @UpdateTimestamp
     @Column(name = "updated_at")
-    protected Date updatedAt;
+    private Date updatedAt;
 }

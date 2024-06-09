@@ -15,6 +15,7 @@ import java.util.Set;
 @SuperBuilder
 @AllArgsConstructor
 public class Student extends User {
+
     private String firstName;
     private String lastName;
     private String address;
@@ -28,7 +29,5 @@ public class Student extends User {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "student", cascade = CascadeType.ALL)
     @ToString.Exclude
     private Set<SessionSign> sessionSigns;
-
-
 
 }

@@ -1,9 +1,12 @@
 package co.essejacques.springschoolmanagement.services.impl;
 
 import co.essejacques.springschoolmanagement.data.entity.User;
+import co.essejacques.springschoolmanagement.data.projections.UserDetailsProjection;
 import co.essejacques.springschoolmanagement.data.repository.UserRepository;
 import co.essejacques.springschoolmanagement.services.interfaces.IUserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -65,5 +68,14 @@ public class UserService implements IUserService {
     @Override
     public Optional<User> findUserByEmailAndPassword(String email, String password) {
         return  this.userRepository.findByEmailAndPassword(email, password);
+    }
+
+    /**
+     * @param pageRequest
+     * @return
+     */
+    @Override
+    public Page<UserDetailsProjection> getAll(PageRequest pageRequest) {
+        return this.userRepository.findPagedProjectedBy(pageRequest);
     }
 }
