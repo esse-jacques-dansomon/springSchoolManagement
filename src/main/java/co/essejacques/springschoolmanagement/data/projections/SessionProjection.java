@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 public interface SessionProjection {
     Long getId();
     LocalDate getDate();
+    Integer getNumberOfHours();
     LocalDateTime getStartTime();
     LocalDateTime getEndTime();
     CourseStatus getstatus();

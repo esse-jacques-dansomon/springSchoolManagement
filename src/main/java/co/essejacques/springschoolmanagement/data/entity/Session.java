@@ -26,6 +26,7 @@ public class Session {
     private LocalDate date;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
+    private Integer numberOfHours = 4;
 
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "course_id")
@@ -45,6 +46,21 @@ public class Session {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private Date updatedAt;
+
+    public void addAttendance(Attendance attendance) {
+        this.attendances.add(attendance);
+        attendance.setSession(this);
+    }
+
+    public void removeAttendance(Attendance attendance) {
+        this.attendances.remove(attendance);
+        attendance.setSession(null);
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+        course.addSession(this);
+    }
 
 
 }

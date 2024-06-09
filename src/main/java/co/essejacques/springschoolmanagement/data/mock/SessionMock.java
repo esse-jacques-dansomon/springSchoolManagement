@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Random;
 
 @Component
 @Builder
@@ -29,13 +30,14 @@ public class SessionMock implements CommandLineRunner {
         if (sessionRepository.findAll().isEmpty()) {
             for (Course course: courseRepository.findAll()) {
                 for (int i = 0; i < 4; i++) {
-                    LocalDateTime now = LocalDateTime.now();
+                    LocalDateTime now = LocalDateTime.now().plusDays(i);
                     Session session = Session.builder()
-                            .date(LocalDate.from(now.plusDays(0)))
+                            .date(LocalDate.from(now))
                             .startTime(LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), 9, 0))
                             .endTime(LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), 12, 0))
                             .status(CourseStatus.PLANNED) // or any other status you want to assign
                             .course(course)
+                            .numberOfHours(4)
                             .build();
                     sessionRepository.save(session);
                 }

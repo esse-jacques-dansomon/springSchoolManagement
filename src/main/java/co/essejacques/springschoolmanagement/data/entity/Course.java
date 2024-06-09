@@ -44,4 +44,9 @@ public class Course {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private Date updatedAt;
+
+    public void addSession(Session session) {
+        this.sessions.add(session);
+        session.setCourse(this);
+    }
 }

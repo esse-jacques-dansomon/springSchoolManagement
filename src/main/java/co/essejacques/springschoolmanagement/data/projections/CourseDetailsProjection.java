@@ -2,16 +2,6 @@ package co.essejacques.springschoolmanagement.data.projections;
 
 import java.util.Set;
 
-public interface CourseDetailsProjection {
-    Long getId();
-
-    String getModule();
-
-    String getProfessor();
-
-    String getIcon();
-
-    String getStatus();
-
+public interface CourseDetailsProjection extends CourseProjection {
     Set<SessionProjection> getSessions();
 }
