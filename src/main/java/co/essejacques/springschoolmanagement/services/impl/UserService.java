@@ -67,7 +67,7 @@ public class UserService implements IUserService {
      */
     @Override
     public Optional<User> findUserByEmailAndPassword(String email, String password) {
-        return  this.userRepository.findByEmailAndPassword(email, password);
+        return this.userRepository.findByEmailAndPassword(email, password);
     }
 
     /**
@@ -77,5 +77,10 @@ public class UserService implements IUserService {
     @Override
     public Page<UserDetailsProjection> getAll(PageRequest pageRequest) {
         return this.userRepository.findPagedProjectedBy(pageRequest);
+    }
+
+    @Override
+    public Optional<UserDetailsProjection> findUserProjectedByEmail(String email) {
+        return this.userRepository.findProjectedByEmail(email);
     }
 }
