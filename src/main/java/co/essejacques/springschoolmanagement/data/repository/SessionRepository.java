@@ -15,6 +15,5 @@ public interface SessionRepository extends JpaRepository<Session, Long> {
   List<SessionDetailsProjection> findAllByStatus(CourseStatus courseStatus);
   List<SessionDetailsProjection> findAllByCourse_ClassRoom_IdAndDateIs(Long  course_classRoom_id, LocalDate endTime);
   List<SessionDetailsProjection> findAllByCourse_ClassRoom_Id(Long id);
-  List<SessionDetailsProjection> findProjectedBy();
   Page<SessionDetailsProjection> findPagedProjectedBy(Pageable pageable);
 }

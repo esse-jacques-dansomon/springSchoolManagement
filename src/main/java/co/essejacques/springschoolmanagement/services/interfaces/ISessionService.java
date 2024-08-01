@@ -6,6 +6,8 @@ import co.essejacques.springschoolmanagement.data.projections.SessionDetailsProj
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ISessionService {
@@ -18,4 +20,5 @@ public interface ISessionService {
     Session updateSession(Long id, Session session);
     List<SessionDetailsProjection> getSessionsByClassroomAndToday(Long id);
     List<SessionDetailsProjection> getSessionsByClassroom(Long id);
+    List<SessionDetailsProjection> getSessionsByClassroomAndDate(Long id, LocalDate date);
 }

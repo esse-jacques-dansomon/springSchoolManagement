@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -65,5 +66,15 @@ public class SessionService implements ISessionService {
     @Override
     public List<SessionDetailsProjection> getSessionsByClassroom(Long id) {
         return sessionRepository.findAllByCourse_ClassRoom_Id(id);
+    }
+
+    /**
+     * @param id
+     * @param date
+     * @return
+     */
+    @Override
+    public List<SessionDetailsProjection> getSessionsByClassroomAndDate(Long id, LocalDate date) {
+        return sessionRepository.findAllByCourse_ClassRoom_IdAndDateIs(id, date);
     }
 }

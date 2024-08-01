@@ -6,12 +6,16 @@ import co.essejacques.springschoolmanagement.data.projections.SessionDetailsProj
 import co.essejacques.springschoolmanagement.services.interfaces.ISessionService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springdoc.core.converters.models.Pageable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -20,6 +24,7 @@ import java.util.List;
 @Tag(name = "Sessions", description = "Session API")
 public class SessionController {
 
+    private static final Logger log = LoggerFactory.getLogger(SessionController.class);
     private final ISessionService sessionService;
 
     @PostMapping()
@@ -48,6 +53,12 @@ public class SessionController {
     @GetMapping("/classroom/{id}/today")
     public List<SessionDetailsProjection> getSessionsByClassroomAndToday(@PathVariable Long id)  {
         return this.sessionService.getSessionsByClassroomAndToday(id);
+    }
+
+    @GetMapping("/classroom/{id}/{date}")
+    public List<SessionDetailsProjection> getSessionsByClassroomAndToday(@PathVariable Long id, @PathVariable LocalDate date)  {
+        log.info(LocalDate.now().toString());
+        return this.sessionService.getSessionsByClassroomAndDate(id, date);
     }
 
     @GetMapping("/{id}")

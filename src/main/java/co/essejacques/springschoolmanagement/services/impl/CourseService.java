@@ -2,6 +2,7 @@ package co.essejacques.springschoolmanagement.services.impl;
 
 import co.essejacques.springschoolmanagement.data.entity.Course;
 import co.essejacques.springschoolmanagement.data.enums.CourseStatus;
+import co.essejacques.springschoolmanagement.data.projections.CourseDetailsProjection;
 import co.essejacques.springschoolmanagement.data.projections.CourseProjection;
 import co.essejacques.springschoolmanagement.data.repository.CourseRepository;
 import co.essejacques.springschoolmanagement.services.interfaces.ICourseService;
@@ -19,20 +20,20 @@ public class CourseService  implements ICourseService {
     private final CourseRepository courseRepository;
 
     @Override
-    public List<Course> getAllCourses() {
-        return courseRepository.findAll();
+    public List<CourseDetailsProjection> getAllCourses() {
+        return courseRepository.findAllProjectedBy();
     }
 
     @Override
-    public List<Course> getCoursesByStatus(CourseStatus courseStatus) {
-        return this.courseRepository.findAllByStatus(courseStatus);
+    public List<CourseDetailsProjection> getCoursesByStatus(CourseStatus courseStatus) {
+        return this.courseRepository.findAllProjectedByStatus(courseStatus);
     }
 
     @Override
-    public Course getCourseById(Long id) {
+    public CourseDetailsProjection getCourseById(Long id) {
         return this
                 .courseRepository
-                .findById(id)
+                .findProjectedById(id)
                 .orElseThrow(() -> new RuntimeException("Course not found"));
     }
 

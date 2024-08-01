@@ -3,6 +3,7 @@ package co.essejacques.springschoolmanagement.mobile.controller;
 
 import co.essejacques.springschoolmanagement.data.entity.Course;
 import co.essejacques.springschoolmanagement.data.enums.CourseStatus;
+import co.essejacques.springschoolmanagement.data.projections.CourseDetailsProjection;
 import co.essejacques.springschoolmanagement.data.projections.CourseProjection;
 import co.essejacques.springschoolmanagement.services.interfaces.ICourseService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -38,7 +39,7 @@ public class CourseController {
     }
 
     @GetMapping("/status/{status}")
-    public List<Course> getCoursesByStatus(@PathVariable CourseStatus status)  {
+    public List<CourseDetailsProjection> getCoursesByStatus(@PathVariable CourseStatus status)  {
         return this.courseService.getCoursesByStatus(status);
     }
 
@@ -53,7 +54,7 @@ public class CourseController {
     }
 
     @GetMapping("/{id}")
-    public Course getCourseById(@PathVariable Long id)  {
+    public CourseDetailsProjection getCourseById(@PathVariable Long id)  {
         return this.courseService.getCourseById(id);
     }
 
